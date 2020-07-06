@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MeemME.Models.FolderModels.FolderListItem>
+
+@{
+    ViewBag.Title = "Meme Folders";
+}
+<style>
+    .btn {
+        animation-delay: 1s;
+    }
+</style>
+<div style="text-align:center;">
+    <h2 style="font-family: 'Kristen ITC'">Meme Folders!!</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "Folder")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Create Folder</a>
+        <a href="@Url.Action("Index", "Image")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Back To Meme Directory</a>
+    </p>
+</div>
+<table class="table" style="display:flex; justify-content:center; text-align:left;">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                <b>Folder Name:</b> @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("View", "Details", new { id = item.FolderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FolderID })
+            </td>
+        </tr>
+    }
+
+</table>

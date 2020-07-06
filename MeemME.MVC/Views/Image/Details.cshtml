@@ -1,0 +1,52 @@
+﻿@model MeemME.Models.ImageModels.ImageDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"></div>
+<h2 style="text-align:center; font-family: 'Kristen ITC'">@Html.DisplayFor(model => model.Title)</h2>
+
+<div style="text-align:center;">
+    <h4><b>Meme Reference Number: </b>@Html.DisplayFor(model => model.ImageID)</h4>
+    <dl style="display:flex; justify-content:center; align-items:center;">
+       
+
+        <dd>
+            <div ="memeImage" style=" margin-top:2em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content:space-between;
+        align-items: center;
+        background-image: url( @Url.Content(Model.ImagePath) );
+        width: 500px;
+        height: 500px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: black;
+        color: white;
+        font-weight:bold;
+        -webkit-text-stroke-width: .75px;
+        -webkit-text-stroke-color: black;
+">
+                <h2 style="text-align center; margin-top:0; margin-bottom:300px;">
+                    @Html.DisplayFor(model => model.TopText)
+                </h2>
+                <br />
+                <h2 style="text-align:center;">
+                    @Html.DisplayFor(model => model.BottomText)
+                </h2>
+            </div>
+            <!--<img src="@Url.Content(Model.ImagePath)" width ="500" height="500" />-->
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p style="display:flex; justify-content:center;">
+    <a href="@Url.Action("Edit", "Image", new{ id = Model.ImageID })" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Edit Meme Text</a>
+    <a href="@Url.Action("Index", "Image")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Back To Meme Directory</a>
+</p>

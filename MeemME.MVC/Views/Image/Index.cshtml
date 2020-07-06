@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MeemME.Models.ImageModels.ImageListItem>
+
+@{
+    ViewBag.Title = "Meme Images";
+}
+    <style>
+        .btn {
+            animation-delay: 1s;
+        }
+    </style>
+    <div style="text-align:center;">
+        <h2 style="font-family: 'Kristen ITC'">Directory Of Meme Images</h2>
+
+        <p>
+            <a href="@Url.Action("Create", "Image")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Create A New Meme</a>
+            <a href="@Url.Action("Index", "Folder")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Organize Your Memes Into Folders</a>
+        </p>
+    </div>
+<table class="table" style="display:flex; justify-content:center; text-align:left; align-content:center;">
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <b>Meme: @Html.DisplayFor(modelItem => item.ImageID)</b>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        <img src="@Url.Content(item.ImagePath)" width="50" height="auto" />
+    </td>
+    <td>
+        @Html.ActionLink("View", "Details", new { id = item.ImageID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ImageID })
+    </td>
+</tr>
+}
+
+</table>

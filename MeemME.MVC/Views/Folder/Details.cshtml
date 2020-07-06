@@ -1,0 +1,28 @@
+﻿@model MeemME.Models.FolderModels.FolderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="font-family: 'Kristen ITC';text-align:center;">@Html.DisplayFor(model => model.Name)</h2>
+<p style="text-align:center;"><b>Images in Folder:</b></p>
+
+<div style="text-align:center;">
+
+
+    <dd style="display:flex; justify-content:space-evenly; margin-top:3em;">
+        @{var count = Model.ImagesInFolder.Count;
+            for (var i = 0; i < count; i++)
+            {
+                <a href="@Url.Action("Details", "Image", new { id = Model.ImagesInFolder[i].ImageID }, null)"> <img src="@Url.Content(Model.ImagesInFolder[i].ImagePath)" width="100" height="auto" /></a>
+            }}
+
+
+
+    </dd>
+
+    <p style="margin-top:3em;">
+        <a href="@Url.Action("Edit", "Folder", new{ id = Model.FolderID })" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Edit Folder</a>
+        <a href="@Url.Action("Index", "Folder")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Back To Folder Directory</a>
+    </p>
+</div>

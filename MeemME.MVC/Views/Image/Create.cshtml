@@ -1,0 +1,268 @@
+﻿@model MeemME.Models.ImageModels.ImageCreate
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 style="text-align:center; font-family: 'Kristen ITC'">Create A New Meme !!</h2>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
+@using (Html.BeginForm("Create", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="display:flex; justify-content:center; align-items:center; flex-direction:column;">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style="        position: relative;
+        margin-top: 1em;
+        text-align: center;
+">
+        <div class="col-md-12">
+            <input type="submit" value="Save To Directory" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em; ">
+            <a href="@Url.Action("Index", "Image")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Back To Meme Directory</a>
+        </div>
+    </div>
+    <div class="form-group" style="margin-top:1em;text-align:center;">
+        <div class="col-md-12">
+            <b>Meme Title:</b>
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+
+    <div class="form-group" style="text-align:center;">
+        <div class="col-md-12">
+            <b>Top Text:</b>
+            @Html.EditorFor(model => model.TopText, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TopText, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="text-align:center;">
+        <div class="col-md-12">
+            <b>Bottom Text:</b> @Html.EditorFor(model => model.BottomText, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.BottomText, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" style="text-align:center; margin-top:1em;">
+        <div class="panel1">
+            <div class="button_outer">
+                <div class="btn_upload btn-primary btn-lg" style="background-color:khaki; border: none; color:black; margin-top:-.25em;">
+                    <input type="file" name="ImageFile" id="upload_file" required /><p>Upload Image</p>
+                    <!--<label for="file" type="file" required class="btn btn-primary btn-lg animate__animated animate__bounceIn animate__delay-1s" style="background-color: khaki; border: none; color: black; margin: .5em; margin-bottom: 1em; cursor: pointer;">
+                        <p>Upload Image</p>
+                    </label>-->
+                </div>
+                <div class="processing_bar"></div>
+                <div class="success_box"><img src="~/Photos/smile.png" style="width:50px; position:absolute;top:0;left:0;" /></div>
+            </div>
+        </div>
+        <div class="error_msg"></div>
+        <div class="uploaded_file_view" id="uploaded_view">
+            <span class="file_remove">X</span>
+        </div>
+    </div>
+
+
+
+
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+
+    input button{
+        display:none;
+    }
+
+    .container:before {
+        height:3em;
+    }
+
+
+    .panel1 {
+        width:300px;
+        max-width: 500px;
+        text-align: center;
+        border:none;
+    }
+
+    .button_outer {
+        background: khaki;
+        border-radius: 8px;
+        text-align: center;
+        height: 50px;
+        width: 200px;
+        display: inline-block;
+        transition: .2s;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .btn_upload {
+        padding: 17px 30px 12px;
+        color: black;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        z-index: 3;
+        white-space: nowrap;
+        cursor: pointer;
+
+    }
+
+        .btn_upload input {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 105%;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+    .file_uploading {
+        width: 100%;
+        height: 10px;
+        margin-top: 20px;
+        background: #ccc;
+    }
+
+        .file_uploading .btn_upload {
+            display: none;
+        }
+
+    .processing_bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        border:hidden;
+        border-radius: 30px;
+        background: khaki;
+        transition: 3s;
+    }
+
+    .file_uploading .processing_bar {
+        width: 100%;
+        border:hidden;
+    }
+
+    .success_box {
+        display: none;
+        width: 50px;
+        height: 50px;
+        position: relative;
+        border-radius: 8px;
+        background-color:white;
+    }
+
+        .success_box:before {
+            content: '';
+            display: block;
+            width: 9px;
+            height: 18px;
+
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            left: 17px;
+            top: 10px;
+        }
+
+    .file_uploaded .success_box {
+        display: inline-block;
+    }
+
+    .file_uploaded {
+        margin-top: 0;
+        width: 50px;
+        background: khaki;
+        height: 50px;
+    }
+
+    .uploaded_file_view {
+        position:relative;
+        max-width: 300px;
+        margin-left:-5em;
+        margin: 3em auto;
+        text-align: center;
+        position: relative;
+        transition: .2s;
+        opacity: 0;
+        border: 2px solid #ddd;
+        padding: 15px;
+    }
+
+    .file_remove {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        background: #aaa;
+        line-height: 30px;
+        color: #fff;
+        font-size: 12px;
+        cursor: pointer;
+        right: -15px;
+        top: -15px;
+    }
+
+        .file_remove:hover {
+            background: #222;
+            transition: .2s;
+        }
+
+    .uploaded_file_view img {
+        max-width: 100%;
+    }
+
+    .uploaded_file_view.show {
+        opacity: 1;
+    }
+
+    .error_msg {
+        text-align: center;
+        color: #f00
+    }
+</style>
+<script type="text/javascript">
+    var btnUpload = $("#upload_file"),
+        btnOuter = $(".button_outer");
+    btnUpload.on("change", function (e) {
+        var ext = btnUpload.val().split('.').pop().toLowerCase();
+        if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+            $(".error_msg").text("Not an Image...");
+        } else {
+            $(".error_msg").text("");
+            btnOuter.addClass("file_uploading");
+            setTimeout(function () {
+                btnOuter.addClass("file_uploaded");
+            }, 3000);
+            var uploadedFile = URL.createObjectURL(e.target.files[0]);
+            setTimeout(function () {
+                $("#uploaded_view").append('<img src="' + uploadedFile + '" />').addClass("show");
+            }, 3500);
+        }
+    });
+    $(".file_remove").on("click", function (e) {
+        $("#uploaded_view").removeClass("show");
+        $("#uploaded_view").find("img").remove();
+        btnOuter.removeClass("file_uploading");
+        btnOuter.removeClass("file_uploaded");
+    });
+</script>

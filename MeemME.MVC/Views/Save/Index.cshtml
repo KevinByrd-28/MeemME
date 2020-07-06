@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MeemME.Models.SaveModels.SaveListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .btn{
+        animation-delay:1s;
+    }
+</style>
+    <div style="text-align:center;">
+        <h2 style="font-family: 'Kristen ITC'";>Store Your Favorites From Around The Web !!</h2>
+
+        <p>
+            <a href="@Url.Action("Create", "Save")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Save New URL</a>
+        </p>
+        </div>
+        <table class="table" style="display:flex; justify-content:space-evenly; text-align:center;">
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <b>Description:</b> @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td style="max-width:450px; white-space:nowrap;overflow:hidden; text-overflow: ellipsis;">
+                      @Html.DisplayFor(modelItem => item.URL)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Delete This Favorite", "Delete", new { id = item.SaveID })
+                    </td>
+                </tr>
+            }
+
+        </table>

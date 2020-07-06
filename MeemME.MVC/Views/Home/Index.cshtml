@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <style>
+
+    @@keyframes jello {
+  from, 11.1%, to {
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  22.2% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+
+  33.3% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+
+  44.4% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+
+  55.5% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+
+  66.6% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+
+  77.7% {
+    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+
+  88.8% {
+    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+        .btn {
+            color: rgba(255,255,255,1);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+    .btn a {
+            color: rgba(51,51,51,1);
+            text-decoration: none;
+            display: block;
+        }
+
+            .btn:hover {
+                -webkit-animation-name: jello;
+                animation-name: jello;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                background-color: rgba(255,255,255,0.2);
+                z-index: 1005;
+
+            }
+.logo{
+    animation-delay:2s;
+}
+    </style>
+
+    <div class="jumbotron" style="width: 100%; height:auto; text-align: center; display:block; overflow:auto; border:5px; border-color:black; border-style:solid; border-top:none; border-radius:0; padding:1em;">
+        <h1 style="">Meme Generator</h1>
+        <div style="display:flex; justify-content:space-evenly; margin-top:3em;">
+            <a href="@Url.Action("Index", "Save")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;">Hilariously Documented Uses!</a>
+            <a href="@Url.Action("Index", "Image")" class="btn btn-primary btn-lg" style="background-color: khaki;border: none;color: black;">Create + Browse Meme Images</a>
+            <a href="https://kevinbyrd.me" class="btn btn-primary btn-lg" style="background-color: khaki;border: none;color: black;">The Brain Behind MeemME</a>
+        </div>
+        <div style="display:flex; justify-content:space-evenly;">
+            <div class="col-md-4" style="text-align:center; margin-top:2em;">
+                
+                <p style="word-wrap: break-word; text-align: center; margin-top:2em;"><b>About MeemME:</b>  We didn't invent the wheel, just a new alternative to other popular meme generators.<br /><br /><b>Rules:</b> Have Fun!</p>
+                <img src="~/Photos/QuoteSmile.png" class ="logo animate__animated animate__wobble" style="width:100%;"/>
+
+            </div>
+            <div class="col-md-6">
+                <img src="~/Photos/binos.jpg" style="width: 100%; margin: 2em; border: 2px solid khaki; margin-top:4em;"/>
+            </div>
+        </div>
+       
+    </div>

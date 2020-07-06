@@ -1,0 +1,42 @@
+﻿@model MeemME.Models.SaveModels.SaveDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="font-family: 'Kristen ITC'">Details</h2>
+
+<div>
+    <h4>SaveDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaveID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaveID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

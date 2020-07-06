@@ -1,0 +1,81 @@
+﻿@model MeemME.Models.FolderModels.FolderEdit
+
+@{
+    ViewBag.Title = "Edit";
+    Html.EnableClientValidation(false);
+}
+
+    <h2 style="font-family: 'Kristen ITC';text-align:center;">Edit: @Html.DisplayFor(model => model.Name)</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal" style="display:flex; text-align:center; justify-content:center; align-items:center; flex-direction:column;">
+    <h4 style="color:red; text-align:center;"><u>Beta Mode</u>: Please Type A Meme Reference Number For The Input Field</h4>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.HiddenFor(model => model.FolderID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.FolderID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FolderID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Folder Name</b>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Add Meme To Existing Folder:</b>
+            @Html.EditorFor(model => model.ImagesInFolder[0], new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Add Meme To Existing Folder:</b>
+            @Html.EditorFor(model => model.ImagesInFolder[1], new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Add Meme To Existing Folder:</b>
+            @Html.EditorFor(model => model.ImagesInFolder[2], new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Add Meme To Existing Folder:</b>
+            @Html.EditorFor(model => model.ImagesInFolder[3], new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <b>Add Meme To Existing Folder:</b>
+            @Html.EditorFor(model => model.ImagesInFolder[4], new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <input type="submit" value="Save" class="btn_upload btn-primary btn-lg" style="background-color:khaki; border: none; color:black;"  />
+            <a href="@Url.Action("Index", "Folder")" class="btn btn-primary btn-lg" style="background-color:khaki; border: none; color:black;margin:.5em;">Back To List Of Folders</a>
+        </div>
+    </div>
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
