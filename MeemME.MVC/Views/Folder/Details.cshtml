@@ -14,7 +14,7 @@
         @{var count = Model.ImagesInFolder.Count;
             for (var i = 0; i < count; i++)
             {
-                <a href="@Url.Action("Details", "Image", new { id = Model.ImagesInFolder[i].ImageID }, null)"> <img src="@Url.Content(Model.ImagesInFolder[i].ImagePath)" width="100" height="auto" /></a>
+                <a href="@Url.Action("Details", "Image", new { id = Model.ImagesInFolder[i].ImageID }, null)"> <img src="@Url.Content(Model.ImagesInFolder[i].ImagePath)" width="100" height="auto" /></a> 
             }}
 
 
