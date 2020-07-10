@@ -26,38 +26,37 @@
             </div>
 
             <div class="form-group">
-
                 <div class="col-md-12">
                     <b>Add 1st Meme:</b>
-                    @Html.EditorFor(model => model.ImagesInFolder[0], new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ImagesInFolder[0], new SelectList(ViewBag.Images, "ImageID", "Title"), "Select One")
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
                     <b>Add 2nd Meme:</b>
-                    @Html.EditorFor(model => model.ImagesInFolder[1], new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ImagesInFolder[1], new SelectList(ViewBag.Images, "ImageID", "Title"), "Select One")
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
                     <b>Add 3rd Meme:</b>
-                    @Html.EditorFor(model => model.ImagesInFolder[2], new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ImagesInFolder[2], new SelectList(ViewBag.Images, "ImageID", "Title"), "Select One")
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
                     <b>Add 4th Meme:</b>
-                    @Html.EditorFor(model => model.ImagesInFolder[3], new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ImagesInFolder[3], new SelectList(ViewBag.Images, "ImageID", "Title"), "Select One")
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
                     <b>Add 5th Meme:</b>
-                    @Html.EditorFor(model => model.ImagesInFolder[4], new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.ImagesInFolder[4], new SelectList(ViewBag.Images, "ImageID", "Title"), "Select One")
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                 </div>
             </div>

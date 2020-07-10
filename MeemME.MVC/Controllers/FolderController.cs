@@ -19,6 +19,13 @@ namespace MeemME.MVC.Controllers
             return service;
         }
 
+        private ImageService CreateImageService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ImageService(userId);
+            return service;
+        }
+
         // GET: Folders
         public ActionResult Index()
         {
@@ -31,6 +38,9 @@ namespace MeemME.MVC.Controllers
         //GET:Create
         public ActionResult Create()
         {
+            var imgSer = CreateImageService();
+            var getImage = imgSer.GetImages();
+            ViewBag.Images = getImage.ToList();
             return View();
         }
 
@@ -67,6 +77,10 @@ namespace MeemME.MVC.Controllers
         //GET Edit
         public ActionResult Edit(int id)
         {
+            var imgSer = CreateImageService();
+            var getImage = imgSer.GetImages();
+            ViewBag.Images = getImage.ToList();
+
             var service = CreateFolderService();
             var detail = service.GetFolderById(id);
             var model =
