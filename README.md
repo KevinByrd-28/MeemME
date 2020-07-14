@@ -1,5 +1,5 @@
 # MeemME - Meme Generator
-<a href="https://meemme.azurewebsites.net/">Azure Deployment</a>
+<a href="https://meemme.azurewebsites.net/">Click Here For Azure Deployment</a>
 
 <h3>Welcome to my Eleven Fifty Academy, Final Red Badge Project, MeemME!!</h3>
 <br>
